@@ -1,0 +1,21 @@
+import Header from './components/Header';
+import Footer from './components/Footer';
+import React, { Component } from 'react';
+import Routes from './components/Routes';
+import './App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Header />
+        <main id="app">
+          <Routes />
+        </main>
+        <Footer />
+      </React.Fragment>
+    );
+  }
+}
+
+export default App;

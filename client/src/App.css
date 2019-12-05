@@ -6,3 +6,20 @@
   margin-right: 10px;
   margin-left: 10px;
 }
+
+#box-title {
+  margin-left : 30px;
+}
+
+#new-post-card{
+  background-color:lightgrey;
+ 
+}
+
+#post-area, #post-title{
+  margin-top:5px;
+}
+
+#post-submit-button{
+  margin-top:5px;
+}

@@ -1,13 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import NewThread from '../components/Thread/NewThread'
+import { getThreads } from '../API'
 
-class Home extends Component {
-  render() {
-    return (
-      <div className="container">
-        Hi !
-      </div>
-    );
-  }
-}
+export default function Home() {
+  const [commmunity, setCommunity] = useState("");
+  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [threads, setThreads] = useState([]);
 
-export default Home;
+  useEffect(() => {
+    getThreads()
+      .then(response => response.json())
+      .then(threads => setThreads(threads));
+  }, []); // << super important array to prevent infinite loop
+
+  console.log(threads);
+
+  return (
+    <div className="container">
+      <NewThread />
+    </div>
+  );
+};

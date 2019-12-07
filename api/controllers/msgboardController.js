@@ -3,6 +3,14 @@ const threads = db.get('threads');
 
 module.exports = {
 
+  getThread(req, res) {
+    threads
+      .findOne({ '_id': req.body.id._id })
+      .then(thread => {
+        res.json(thread);
+      });
+  },
+
   getThreads(req, res) {
     threads
       .find()
@@ -12,9 +20,11 @@ module.exports = {
   },
 
   sendThread(req, res) {
-    const { id, community, category, description, date, score, level } = req.body
+    const date = Date.now();
+    const { title, community, category, description, score, level } = req.body
     const thread = {
-      id,
+      date,
+      title,
       community,
       category,
       description,
@@ -26,6 +36,6 @@ module.exports = {
       .then(insertedThread => {
         res.json(insertedThread)
       });
-
   }
+
 }

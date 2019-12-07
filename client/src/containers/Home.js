@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewThread from '../components/Thread/NewThread'
+import RecentThreads from '../components/Thread/RecentThreads'
 import { getThreads } from '../API'
 
 export default function Home() {
@@ -15,11 +16,11 @@ export default function Home() {
       .then(threads => setThreads(threads));
   }, []); // << super important array to prevent infinite loop
 
-  console.log(threads);
-
   return (
     <div className="container">
       <NewThread />
+      <RecentThreads
+        threads={threads} />
     </div>
   );
 };

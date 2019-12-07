@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class NewThread extends Component {
   render() {
     return (
-      <div className="col-8" style={{ marginTop: '10px', marginBottom: '10px' }}>
-        <div id="box-title"><b>New Post</b></div>
+      <div className="col-lg-8 col-md-8 col-sm-12" style={{ marginTop: '10px', marginBottom: '10px' }}>
+        <div id="box-title"><b>New Thread</b></div>
         <div className="card">
           <div className="card-body" id="new-post-card">
             <form>

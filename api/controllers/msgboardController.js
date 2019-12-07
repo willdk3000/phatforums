@@ -1,5 +1,6 @@
 const db = require('../../config/db.js');
 const threads = db.get('threads');
+const replies = db.get('replies');
 
 module.exports = {
 
@@ -19,6 +20,14 @@ module.exports = {
       });
   },
 
+  getReplies(req, res) {
+    replies
+      .find({ 'thread_id': req.body.id })
+      .then(replies => {
+        res.json(replies);
+      });
+  },
+
   sendThread(req, res) {
     const date = Date.now();
     const { title, community, category, description, score, level } = req.body
@@ -28,14 +37,33 @@ module.exports = {
       community,
       category,
       description,
-      date,
-      score,
-      level
+      score
     };
     threads.insert(thread)
       .then(insertedThread => {
         res.json(insertedThread)
       });
+
+    console.log(Date.now(), 'Thread sent !')
+  },
+
+  sendReply(req, res) {
+    const date = Date.now();
+    const { thread_id, community, category, description, score } = req.body
+    const reply = {
+      date,
+      thread_id,
+      community,
+      category,
+      description,
+      score
+    };
+    replies.insert(reply)
+      .then(insertedReply => {
+        res.json(insertedReply)
+      });
+
+    console.log(Date.now(), 'Reply sent !')
   }
 
 }

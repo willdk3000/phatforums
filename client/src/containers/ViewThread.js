@@ -11,6 +11,7 @@ export default function ViewThread() {
 
   const [thread, setThread] = useState([]);
   const [replies, setReplies] = useState([]);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     getThread(id)
@@ -23,8 +24,9 @@ export default function ViewThread() {
     getReplies(id._id)
       .then(response => response.json())
       .then(replies => setReplies(replies));
-  }, [id]); // << super important array to prevent infinite loop
-  // const [commmunity, setCommunity] = useState("");
+  }, [count]); // << super important array to prevent infinite loop
+
+  console.log(count)
 
   function formReplySubmitted(event) {
 
@@ -39,8 +41,8 @@ export default function ViewThread() {
 
     sendReply(reply);
     event.target.elements.postArea.value = '';
+    setCount(count + 1)
   }
-
 
   return (
     <div className="container">

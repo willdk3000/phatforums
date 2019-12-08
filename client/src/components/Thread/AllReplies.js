@@ -8,6 +8,7 @@ const AllReplies = ({ replies }) => {
       {replies.map(reply => (
         <div className="card" key={reply._id}>
           <div className="card-body" id="recent-threads">
+            <div style={{ fontSize: '11px', marginBottom: '5px' }}>{reply.date}</div>
             {reply.description}
           </div>
         </div>

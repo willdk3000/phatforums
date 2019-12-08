@@ -26,22 +26,31 @@ export default function ViewThread() {
       .then(replies => setReplies(replies));
   }, [count]); // << super important array to prevent infinite loop
 
-  console.log(count)
+  useEffect(() => {
+    return () => {
+      console.log('Component unmounted...')
+    }
+  }, []);
+
+  //console.log(count)
 
   function formReplySubmitted(event) {
 
-    event.preventDefault();
-    const reply = {
-      thread_id: id._id,
-      community: thread.community,
-      category: thread.category,
-      description: event.target.postArea.value,
-      score: 0,
-    };
+    if (event.target.postArea.value !== "") {
+      event.preventDefault();
+      const reply = {
+        thread_id: id._id,
+        community: thread.community,
+        category: thread.category,
+        description: event.target.postArea.value,
+        score: 0,
+      };
 
-    sendReply(reply);
-    event.target.elements.postArea.value = '';
-    setCount(count + 1)
+      sendReply(reply);
+      event.target.elements.postArea.value = '';
+      setCount(count + 1)
+    }
+
   }
 
   return (

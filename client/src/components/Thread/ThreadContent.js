@@ -6,7 +6,7 @@ const ThreadContent = ({ thread }) => {
       <h1 className="display-4">{thread.title}</h1>
       <div className="card">
         <div className="card-header" style={{ fontSize: '12px' }}>
-          <div className="col-4 float-left">
+          <div className="col-6 float-left">
             Original post | {thread.date}
           </div>
           <div className="col-4 float-right text-right">

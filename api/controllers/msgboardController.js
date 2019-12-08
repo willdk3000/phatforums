@@ -30,12 +30,11 @@ module.exports = {
 
   sendThread(req, res) {
     const date = Date.now();
-    const { title, community, category, description, score, level } = req.body
+    const { title, community, description, score } = req.body
     const thread = {
       date,
       title,
       community,
-      category,
       description,
       score
     };
@@ -49,12 +48,11 @@ module.exports = {
 
   sendReply(req, res) {
     const date = Date.now();
-    const { thread_id, community, category, description, score } = req.body
+    const { thread_id, community, description, score } = req.body
     const reply = {
       date,
       thread_id,
       community,
-      category,
       description,
       score
     };

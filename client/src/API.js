@@ -18,6 +18,20 @@ export function getThread(id) {
   return response
 };
 
+export function sendThread(thread) {
+
+  const response = fetch('/api/sendThread', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(thread)
+  });
+
+  return response
+
+}
+
 export function sendReply(reply) {
 
   const response = fetch('/api/sendReply', {

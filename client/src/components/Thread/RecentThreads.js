@@ -8,9 +8,14 @@ const RecentThreads = ({ threads }) => {
       {threads.map(thread => (
         <div className="card" key={thread._id}>
           <div className="card-body" id="recent-threads">
-            <Link to={{ pathname: `/threads/${thread._id}` }}>
-              {thread.title}
-            </Link>
+            <div className="col-6 float-left">
+              <Link to={{ pathname: `/threads/${thread._id}` }}>
+                {thread.title}
+              </Link>
+            </div>
+            <div className="col-4 float-right text-right" style={{ fontSize: '13px' }}>
+              tags | {thread.community}
+            </div>
           </div>
         </div>
       ))}

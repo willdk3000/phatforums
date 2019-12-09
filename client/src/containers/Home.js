@@ -9,6 +9,7 @@ export default function Home() {
   const [community, setCommunity] = useState("");
   const [threads, setThreads] = useState([]);
   const [count, setCount] = useState(0);
+  const [replies, setReplies] = useState([]);
 
   useEffect(() => {
     getThreads()
@@ -18,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     return () => {
-      console.log('Component unmounted...')
+      console.log('Component "Home" unmounted...')
     }
   }, []);
 
@@ -33,7 +34,8 @@ export default function Home() {
       community: community,
       title: event.target.postTitle.value,
       description: event.target.postArea.value,
-      score: 0
+      score: 0,
+      replies: 0
     }
 
     sendThread(newThread);

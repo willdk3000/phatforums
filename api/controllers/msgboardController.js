@@ -30,13 +30,14 @@ module.exports = {
 
   sendThread(req, res) {
     const date = Date.now();
-    const { title, community, description, score } = req.body
+    const { title, community, description, score, replies } = req.body
     const thread = {
       date,
       title,
       community,
       description,
-      score
+      score,
+      replies
     };
     threads.insert(thread)
       .then(insertedThread => {
@@ -56,6 +57,13 @@ module.exports = {
       description,
       score
     };
+
+    // Add 1 to number of replies for this thread
+    threads
+      .findOneAndUpdate({ '_id': thread_id }, { $inc: { "replies": 1 } })
+      .then((updatedThread) => { })
+
+    // Insert reply into db
     replies.insert(reply)
       .then(insertedReply => {
         res.json(insertedReply)

@@ -5,5 +5,6 @@ module.exports = [
   { 'key': 4, 'name': 'News' },
   { 'key': 5, 'name': 'Random' },
   { 'key': 6, 'name': 'Sports' },
-  { 'key': 7, 'name': 'TV Series & Documentaires' }
+  { 'key': 7, 'name': 'TV Series & Documentaires' },
+  { 'key': 8, 'name': 'Travel' }
 ];

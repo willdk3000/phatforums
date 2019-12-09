@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const RecentThreads = ({ threads }) => {
+const RecentThreads = ({ threads, replies }) => {
   return (
     <div className="col-12" style={{ marginTop: '10px', marginBottom: '10px' }}>
       <div id="box-title"><b>Recent Threads</b></div>
@@ -14,7 +14,7 @@ const RecentThreads = ({ threads }) => {
               </Link>
             </div>
             <div className="col-4 float-right text-right" style={{ fontSize: '13px' }}>
-              tags | {thread.community}
+              {thread.replies} replies | {thread.community}
             </div>
           </div>
         </div>

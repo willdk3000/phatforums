@@ -28,7 +28,7 @@ export default function ViewThread() {
 
   useEffect(() => {
     return () => {
-      console.log('Component unmounted...')
+      console.log('Component "View thread" unmounted...')
     }
   }, []);
 

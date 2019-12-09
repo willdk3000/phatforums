@@ -10,7 +10,7 @@ const ThreadContent = ({ thread }) => {
             Original post | {thread.date}
           </div>
           <div className="col-4 float-right text-right">
-            {thread.community} | {thread.category}
+            {thread.community}
           </div>
         </div>
         <div className="card-body" style={{ backgroundColor: 'lightgrey' }}>

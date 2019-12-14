@@ -7,6 +7,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+require('dotenv').config();
+
 // Serve static files from the React app
 
 //app.use('/assets', express.static('public'))
@@ -16,10 +18,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-require('dotenv').config();
 
 require('./api/routes')(app);
-
 
 
 
@@ -29,3 +29,4 @@ app.listen(PORT);
 console.log("Server listening on port", PORT);
 
 
+module.exports = app;

@@ -15,12 +15,18 @@ require('dotenv').config();
 //app.use(express.static('client/build'));
 
 if (process.env.NODE_ENV === 'production') {
+
   app.use(express.static('client/build'));
+
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+
 }
 
 
 require('./api/routes')(app);
-
 
 
 // For Heroku - port env variable

@@ -12,6 +12,10 @@ app.use(bodyParser.urlencoded({
 //app.use('/assets', express.static('public'))
 //app.use(express.static('client/build'));
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 require('dotenv').config();
 
 require('./api/routes')(app);

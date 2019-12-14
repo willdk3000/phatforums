@@ -17,7 +17,7 @@ export default function ViewThread() {
     getThread(id)
       .then(response => response.json())
       .then(thread => setThread(thread));
-  }, [id]); // << super important array to prevent infinite loop
+  }, [id], [count]); // << super important array to prevent infinite loop
   // const [commmunity, setCommunity] = useState("");
 
   useEffect(() => {

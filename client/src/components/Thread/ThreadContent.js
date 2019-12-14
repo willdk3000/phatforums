@@ -9,8 +9,8 @@ const ThreadContent = ({ thread }) => {
           <div className="col-6 float-left">
             Original post | {thread.date}
           </div>
-          <div className="col-4 float-right text-right">
-            {thread.community}
+          <div className="col-6 float-right text-right">
+            {thread.replies} replies | {thread.community}
           </div>
         </div>
         <div className="card-body" style={{ backgroundColor: 'lightgrey' }}>
